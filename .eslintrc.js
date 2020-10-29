@@ -27,6 +27,7 @@ module.exports = {
 			}
 		],
 		"react/jsx-indent": ["error", "tab"],
+		"react/jsx-indent-props": ["error", "tab"],
 		"@typescript-eslint/indent": ["error", "tab"],
 		"@typescript-eslint/explicit-function-return-type": [
 			"error",

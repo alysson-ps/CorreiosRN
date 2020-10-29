@@ -1,20 +1,25 @@
-import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View } from "react-native";
+import React, { useState } from "react";
+import { StyleSheet, Text, View, TouchableOpacity } from "react-native";
+
+import data from "./service/api"; //eslint-disable-line
 
 const App: React.FC = () => {
-	const [number, setNumber] = useState(0);
-
-	useEffect(() => {
-		const i = setInterval(() => {
-			setNumber(prevNumber => prevNumber + 1);
-		}, 1000);
-
-		return () => clearInterval(i);
-	}, []);
+	const [router, setRouter] = useState({});
 
 	return (
 		<View style={styles.container}>
-			<Text>{number}</Text>
+			<TouchableOpacity
+				onPress={() => {
+					(async () => {
+						const result = await data("OL084778211BR");
+						setRouter(result);
+					})();
+				}}
+			>
+				<Text>Busca</Text>
+			</TouchableOpacity>
+
+			{router && router["0"].map(i => <Text>{i}</Text>)}
 		</View>
 	);
 };
