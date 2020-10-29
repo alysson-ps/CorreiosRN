@@ -1,10 +1,20 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View } from "react-native";
 
 const App: React.FC = () => {
+	const [number, setNumber] = useState(0);
+
+	useEffect(() => {
+		const i = setInterval(() => {
+			setNumber(prevNumber => prevNumber + 1);
+		}, 1000);
+
+		return () => clearInterval(i);
+	}, []);
+
 	return (
 		<View style={styles.container}>
-			<Text>Open up App.tsx to start working on your app!</Text>
+			<Text>{number}</Text>
 		</View>
 	);
 };
