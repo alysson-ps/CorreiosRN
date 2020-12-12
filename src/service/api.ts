@@ -1,8 +1,7 @@
-const { rastrearEncomendas } = require("correios-brasil"); //eslint-disable-line
+import axios from "axios";
 
-const tracking = async code => { //eslint-disable-line
-	const result = await rastrearEncomendas([code]);
-	return result;
-};
+const api = axios.create({
+	baseURL: "http://192.168.0.105:3333/"
+});
 
-export default tracking;
+export default api;

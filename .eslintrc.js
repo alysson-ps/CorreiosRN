@@ -26,8 +26,16 @@ module.exports = {
 				extensions: [".jsx", ".tsx"]
 			}
 		],
+		"import/extensions": [
+			"warn",
+			{
+				extensions: [".jsx", ".tsx", ".png"]
+			}
+		],
+		"import/no-unresolved": "off",
 		"react/jsx-indent": ["error", "tab"],
 		"react/jsx-indent-props": ["error", "tab"],
+		"react/no-array-index-key": "off",
 		"@typescript-eslint/indent": ["error", "tab"],
 		"@typescript-eslint/explicit-function-return-type": [
 			"error",
